@@ -78,7 +78,8 @@
             android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView8"/>
+            app:layout_constraintTop_toBottomOf="@+id/textView8"
+            app:tabMode="scrollable" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/menu_pager"
