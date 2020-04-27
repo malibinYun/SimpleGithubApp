@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">SimpleGithubApp</string>
+    <string name="email">email</string>
+    <string name="blog">blog</string>
+    <string name="location">location</string>
+    <string name="company">company</string>
+    <string name="created">Created</string>
+    <string name="updated_on">Updated on</string>
 </resources>
