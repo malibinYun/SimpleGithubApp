@@ -1,6 +1,6 @@
 package com.malibin.simplegithub.ui.sample
 
-import android.util.Log
+import androidx.databinding.ObservableField
 
 /**
  * Created By Malibin
@@ -9,11 +9,11 @@ import android.util.Log
 
 class SampleDataHandler {
 
-    var count = 0
+    var count = ObservableField<Int>(0)
 
     fun countUp() {
-        count++
-        Log.d("Malibin Debug", "$count")
+        val currentCount = count.get() ?: 0
+        count.set(currentCount + 1)
     }
 
 }
