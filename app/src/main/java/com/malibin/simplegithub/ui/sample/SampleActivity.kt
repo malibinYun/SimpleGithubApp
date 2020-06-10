@@ -1,11 +1,10 @@
 package com.malibin.simplegithub.ui.sample
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
-import androidx.databinding.Observable
-import androidx.databinding.ObservableField
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import com.malibin.simplegithub.databinding.ActivitySampleBinding
 
 class SampleActivity : AppCompatActivity() {
@@ -18,22 +17,21 @@ class SampleActivity : AppCompatActivity() {
 
         val sampleDataHandler = SampleDataHandler()
         binding.handler = sampleDataHandler
+//        binding.lifecycleOwner = this
+//        이놈을 지우면 어떻게 될까?
 
-        sampleDataHandler.count.addOnPropertyChangedCallback(
-            object : Observable.OnPropertyChangedCallback() {
-                override fun onPropertyChanged(sender: Observable?, propertyId: Int) {
-                    sender as ObservableField<Int>
-                    Log.d("Malibin Debug", "${sender.get()}")
-                }
-            })
+        sampleDataHandler.count.observe(this, Observer {
+            Log.d("Malibin Debug", "$it")
+        })
 
 //        폰이 자고있을 때도 동작하는지 검증해볼까?
-//        val handler = Handler()
-//        Thread {
-//            for(i in 1..10){
-//                handler.post { sampleDataHandler.countUp() }
-//                Thread.sleep(1000)
-//            }
-//        }.start()
+        val handler = Handler()
+        Thread {
+            for (i in 1..10) {
+                handler.post { sampleDataHandler.countUp() }
+                Thread.sleep(1000)
+            }
+        }.start()
+
     }
 }

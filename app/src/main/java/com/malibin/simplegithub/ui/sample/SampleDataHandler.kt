@@ -1,6 +1,6 @@
 package com.malibin.simplegithub.ui.sample
 
-import androidx.databinding.ObservableField
+import androidx.lifecycle.MutableLiveData
 
 /**
  * Created By Malibin
@@ -9,11 +9,11 @@ import androidx.databinding.ObservableField
 
 class SampleDataHandler {
 
-    var count = ObservableField<Int>(0)
+    var count = MutableLiveData<Int>()
 
     fun countUp() {
-        val currentCount = count.get() ?: 0
-        count.set(currentCount + 1)
+        val currentCount = count.value ?: 0
+        count.value = currentCount + 1
     }
 
 }
