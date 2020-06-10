@@ -17,7 +17,7 @@ class SampleActivity : AppCompatActivity() {
 
         val sampleDataHandler = SampleDataHandler()
         binding.handler = sampleDataHandler
-//        binding.lifecycleOwner = this
+        binding.lifecycleOwner = this
 //        이놈을 지우면 어떻게 될까?
 
         sampleDataHandler.count.observe(this, Observer {

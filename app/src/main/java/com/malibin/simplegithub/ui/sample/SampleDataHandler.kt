@@ -11,6 +11,8 @@ class SampleDataHandler {
 
     var count = MutableLiveData<Int>()
 
+    var inputText = MutableLiveData<String>()
+
     fun countUp() {
         val currentCount = count.value ?: 0
         count.value = currentCount + 1
